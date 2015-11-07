@@ -4,19 +4,19 @@ This project has the purpose to show everyone we can use Ceylon for enterprise d
 without any loss for currently Java projects.
 I´m planning to use:
 
-- Backend
--- JAX-RS
--- CDI
--- JPA
--- Wildfly
+* Backend
+** JAX-RS
+** CDI
+** JPA
+** Wildfly
 
-- Frontend
--- Angular
--- Booststrap
+* Frontend
+** Angular
+** Booststrap
 
-- Tests
--- Arquillian
--- Cuccumber
+* Tests
+** Arquillian
+** Cuccumber
 
 But of course I dont have full time to work in this project.. I´m doing in my spare time.
 Any help will be appreciated, also suggestions, patches, pull requests, etc...  Thanks.
