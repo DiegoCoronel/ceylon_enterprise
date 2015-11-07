@@ -1,22 +1,35 @@
-import person_api.rs { 
-	Resource
- }
 import java.lang {
-	JLong = Long
+	JLong=Long
 }
-import person_api.model {
 
+import person_api.model {
 	Person
 }
-import person_service.model {
-
-	PersonImpl
+import person_api.rs {
+	Resource
 }
 
-shared class ResourceImpl() satisfies Resource {
+import person_service.dao {
+	PersonDao
+}
+import person_service.model {
+	PersonImpl
+}
+import javax.inject {
+	inject = inject__FIELD
+}
+
+shared class ResourceImpl satisfies Resource {
+	
+	inject
+	late PersonDao personDao;
+	
+	shared new() {
+		
+	}
 	
 	shared actual Person? get(JLong id) {
-		return null;
+		return personDao.byId(id);
 	}
 	
 	shared actual Person persist(Person person) {
