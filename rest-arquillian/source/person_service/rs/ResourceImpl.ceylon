@@ -16,23 +16,27 @@ import person_service.model {
 	PersonImpl
 }
 import javax.inject {
-	inject = inject__FIELD
+	inject
+}
+import javax.ejb {
+	stateless
 }
 
+stateless
 shared class ResourceImpl satisfies Resource {
 	
-	inject
-	late PersonDao personDao;
+	PersonDao personDao;
 	
-	shared new() {
-		
+	inject
+	shared new(PersonDao personDao) {
+		this.personDao = personDao;
 	}
 	
-	shared actual Person? get(JLong id) {
+	shared default actual Person? get(JLong id) {
 		return personDao.byId(id);
 	}
 	
-	shared actual Person persist(Person person) {
+	shared default actual Person persist(Person person) {
 		return PersonImpl.someone {
 			id => JLong(1);
 			name => person.name;

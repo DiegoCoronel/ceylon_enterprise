@@ -11,4 +11,7 @@ module person_service "1.0.0" {
 	//Allowe inject/context (CDI)
 	shared import "javax.inject:javax.inject" "1";
 	shared import "javax.enterprise:cdi-api" "1.2";
+	
+	//EJB
+	shared import "javax.ejb:javax.ejb-api" "3.2";
 }
