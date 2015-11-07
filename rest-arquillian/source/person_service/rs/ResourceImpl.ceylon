@@ -1,4 +1,4 @@
-import person_api.person.rs { 
+import person_api.rs { 
 	Resource
  }
 import java.lang {
