@@ -22,15 +22,9 @@ import javax.ejb {
 	stateless
 }
 
+inject
 stateless
-shared class ResourceImpl satisfies Resource {
-	
-	PersonDao personDao;
-	
-	inject
-	shared new(PersonDao personDao) {
-		this.personDao = personDao;
-	}
+shared class ResourceImpl(PersonDao personDao) satisfies Resource {
 	
 	shared default actual Person? get(JLong id) {
 		return personDao.byId(id);
