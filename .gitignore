@@ -1,0 +1,7 @@
+/rest-arquillian/application-1.0.0.war
+/rest-arquillian/modules/person_test
+/rest-arquillian/modules/application
+/rest-arquillian/modules/person_api
+/rest-arquillian/modules/person_service
+/rest-arquillian/.settings
+/rest-arquillian/.exploded

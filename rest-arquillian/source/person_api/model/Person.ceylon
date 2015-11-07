@@ -4,7 +4,7 @@ import java.lang {
 
 shared interface Person {
 	
-	shared formal JLong? id;
-	shared formal String name;
+	shared formal variable JLong? id;
+	shared formal variable String name;
 	
 }

@@ -8,6 +8,10 @@ import person_api.model {
 
 	Person
 }
+import person_service.model {
+
+	PersonImpl
+}
 
 shared class ResourceImpl() satisfies Resource {
 	
@@ -16,9 +20,9 @@ shared class ResourceImpl() satisfies Resource {
 	}
 	
 	shared actual Person persist(Person person) {
-		return object satisfies Person {
-			shared actual JLong? id => JLong(1);
-			shared actual String name => "Diego";
+		return PersonImpl.someone {
+			id => JLong(1);
+			name => person.name;
 		};
 	}
 	
