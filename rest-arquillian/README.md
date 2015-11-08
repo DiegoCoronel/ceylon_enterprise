@@ -29,3 +29,11 @@ Currently I´m using 4 projects:
 There is a build.xml, check it, change your path and you are done.  
 
 * In browser go to http://localhost:8080/application-1.0.0/rest/person/health to check if its working
+
+###Planned
+
+* Create all backend services (WIP)
+
+* Create frontend
+
+* Create Tests
