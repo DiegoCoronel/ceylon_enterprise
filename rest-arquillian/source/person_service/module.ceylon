@@ -14,4 +14,7 @@ module person_service "1.0.0" {
 	
 	//EJB
 	shared import "javax.ejb:javax.ejb-api" "3.2";
+	
+	//JPA
+	shared import "org.hibernate.javax.persistence:hibernate-jpa-2.0-api" "1.0.1.Final";
 }

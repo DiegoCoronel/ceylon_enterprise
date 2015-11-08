@@ -4,10 +4,21 @@ import person_api.model {
 import java.lang {
 	JLong = Long
 }
+import javax.persistence {
+	id=id__FIELD,
+	generatedValue=generatedValue__FIELD,
+	table,
+	entity
+}
 
+entity
+table{ name = "person" ;}
 shared class PersonImpl satisfies Person {
 	
+	id
+	generatedValue
 	shared actual variable JLong? id;
+	
 	shared actual variable String name;
 
 	shared new() {
