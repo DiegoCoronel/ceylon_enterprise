@@ -13,22 +13,12 @@ import javax.persistence {
 
 entity
 table{ name = "person" ;}
-shared class PersonImpl satisfies Person {
+shared class PersonImpl(id = null, name = "") satisfies Person {
 	
 	id
 	generatedValue
 	shared actual variable JLong? id;
 	
 	shared actual variable String name;
-
-	shared new() {
-		this. id = null;
-		this.name = "";
-	}
-	
-	shared new someone(JLong id, String name) {
-		this.id = id;
-		this.name = name;
-	}
 	
 }
