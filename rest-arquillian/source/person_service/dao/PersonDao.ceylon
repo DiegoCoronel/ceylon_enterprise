@@ -2,15 +2,12 @@ import java.lang {
 	JLong = Long
 }
 import person_service.model {
-
 	PersonImpl
 }
 import person_api.model {
-
 	Person
 }
 import javax.inject {
-
 	inject
 }
 import javax.persistence {
@@ -18,7 +15,6 @@ import javax.persistence {
 	NoResultException
 }
 import ceylon.interop.java {
-
 	javaClass
 }
 
@@ -33,6 +29,11 @@ shared class PersonDao(EntityManager entityManager) {
 		} catch(NoResultException noResult) {
 			return null;
 		}
+	}
+	
+	shared Person persist(Person person) {
+		entityManager.persist(person);
+		return person;
 	}
 	
 }

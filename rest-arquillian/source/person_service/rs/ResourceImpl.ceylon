@@ -1,25 +1,20 @@
 import java.lang {
 	JLong=Long
 }
-
+import javax.ejb {
+	stateless
+}
+import javax.inject {
+	inject
+}
 import person_api.model {
 	Person
 }
 import person_api.rs {
 	Resource
 }
-
 import person_service.dao {
 	PersonDao
-}
-import person_service.model {
-	PersonImpl
-}
-import javax.inject {
-	inject
-}
-import javax.ejb {
-	stateless
 }
 
 inject
@@ -31,10 +26,7 @@ shared class ResourceImpl(PersonDao personDao) satisfies Resource {
 	}
 	
 	shared default actual Person persist(Person person) {
-		return PersonImpl.someone {
-			id => JLong(1);
-			name => person.name;
-		};
+		return personDao.persist(person);
 	}
-	
+
 }
