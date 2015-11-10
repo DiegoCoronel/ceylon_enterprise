@@ -29,7 +29,6 @@ shared interface Resource {
 	get
 	shared formal Person? get( pathParam("id") JLong id );
 	
-	path("/persist")
 	post
 	shared formal Person persist(Person person);
 	
