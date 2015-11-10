@@ -32,8 +32,8 @@ There is a build.xml, check it, change your path and you are done.
 
 ###Planned
 
-* Create all backend services (WIP)
+* Create all backend services (done, unless anyone requests to see some EE feature)
 
-* Create frontend
+* Create frontend (WIP)
 
 * Create Tests
