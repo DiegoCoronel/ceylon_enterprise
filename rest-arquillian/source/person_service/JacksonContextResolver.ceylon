@@ -22,10 +22,12 @@ import com.fasterxml.jackson.databind.\imodule {
 	SimpleModule
 }
 import person_api.model {
-	Person
+	Person,
+	PersonalInfo
 }
 import person_service.model {
-	PersonImpl
+	PersonImpl,
+	PersonalInfoImpl
 }
 
 provider
@@ -39,6 +41,7 @@ class JacksonContextResolver satisfies ContextResolver<ObjectMapper> {
 		
 		value mapping = SimpleModule();
 		mapping.addAbstractTypeMapping<Person>(javaClass<Person>(), javaClass<PersonImpl>());
+		mapping.addAbstractTypeMapping<PersonalInfo>(javaClass<PersonalInfo>(), javaClass<PersonalInfoImpl>());
 		
 		objectMapper.registerModule(mapping);
 	}

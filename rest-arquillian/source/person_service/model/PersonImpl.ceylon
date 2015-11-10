@@ -1,5 +1,6 @@
 import person_api.model {
-	Person
+	Person,
+	PersonalInfo
 }
 import java.lang {
 	JLong = Long
@@ -20,5 +21,9 @@ shared class PersonImpl(id = null, name = "") satisfies Person {
 	shared actual variable JLong? id;
 	
 	shared actual variable String name;
+	
+	shared actual void update(PersonalInfo personalInfo) {
+		name = personalInfo.name;
+	}
 	
 }

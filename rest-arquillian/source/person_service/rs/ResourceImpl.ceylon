@@ -8,7 +8,8 @@ import javax.inject {
 	inject
 }
 import person_api.model {
-	Person
+	Person,
+	PersonalInfo
 }
 import person_api.rs {
 	Resource
@@ -26,7 +27,18 @@ shared class ResourceImpl(PersonDao personDao) satisfies Resource {
 	}
 	
 	shared default actual Person persist(Person person) {
+		assert(!person.id exists);
 		return personDao.persist(person);
+	}
+	
+	shared default actual Person? remove(JLong id)  {
+		return personDao.remove(id);
+	}
+	
+	shared default actual Person update(JLong id, PersonalInfo personalInfo) {
+		assert(exists person = personDao.byId(id));
+		person.update(personalInfo);
+		return person;
 	}
 
 }

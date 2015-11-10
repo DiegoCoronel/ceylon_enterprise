@@ -4,7 +4,9 @@ import javax.ws.rs {
 	produces,
 	get,
 	pathParam,
-	post
+	post,
+	put,
+	delete
 }
 import javax.ws.rs.core {
 	MediaType
@@ -13,7 +15,8 @@ import java.lang {
 	JLong = Long
 }
 import person_api.model {
-	Person
+	Person,
+	PersonalInfo
 }
 
 path("/person")
@@ -31,5 +34,13 @@ shared interface Resource {
 	
 	post
 	shared formal Person persist(Person person);
+	
+	put
+	path("/{id}")
+	shared formal Person update(pathParam("id") JLong id, PersonalInfo personalInfo);
+	
+	delete
+	path("/{id}")
+	shared formal Person? remove(pathParam("id") JLong id);
 	
 }

@@ -36,4 +36,12 @@ shared class PersonDao(EntityManager entityManager) {
 		return person;
 	}
 	
+	shared Person? remove(JLong id) {
+		Person? person = byId(id);
+		if(exists person) {
+			entityManager.remove(person);
+		}
+		return person;
+	}
+	
 }
