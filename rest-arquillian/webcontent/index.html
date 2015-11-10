@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+        <title>Ceylon Enterprise</title>
+        <script type="text/javascript" src="js/require-2.1.20.js"></script>
+        <script type="text/javascript" src="js/angular.js"></script>
+        <script type="text/javascript">
+            require.config({
+                // location of our project's compiled modules
+                baseUrl: 'modules'
+            });
+            // call `run()`
+            require([
+                         'person_frontend/1.0.0/person_frontend-1.0.0',
+                         'ceylon_angular/1.0.0/ceylon_angular-1.0.0',
+                         'ceylon/language/1.2.1/ceylon.language-1.2.1'
+                     ], 
+                    function (_app) { app = _app; app.run(); });
+        </script>
+    </head>
+    <body ng-controller="PersonController">
+        {{sayHello}}
+    </body>
+</html>

@@ -22,5 +22,18 @@
 			/>
 		</copy>
 	</target>
+	
+	<target name="copy_frontend">
+		<copy todir="webcontent/modules/person_frontend/1.0.0/" overwrite="true">
+			<fileset 
+				file="modules/person_frontend/1.0.0/person_frontend-1.0.0*.js"
+			/>
+		</copy>
+		<copy todir="webcontent/modules/ceylon_angular/1.0.0/" overwrite="true">
+			<fileset 
+				file="modules/ceylon_angular/1.0.0/ceylon_angular-1.0.0*.js"
+			/>
+		</copy>
+	</target>
 
 </project>

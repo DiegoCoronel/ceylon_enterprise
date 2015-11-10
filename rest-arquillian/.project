@@ -14,8 +14,18 @@
 			<name>com.redhat.ceylon.eclipse.ui.ceylonBuilder</name>
 			<arguments>
 				<dictionary>
-					<key>systemRepo</key>
-					<value></value>
+					<key>compileJs</key>
+					<value>true</value>
+				</dictionary>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.ui.externaltools.ExternalToolBuilder</name>
+			<triggers>auto,full,</triggers>
+			<arguments>
+				<dictionary>
+					<key>LaunchConfigHandle</key>
+					<value>&lt;project&gt;/.externalToolBuilders/copy_frontend.launch</value>
 				</dictionary>
 			</arguments>
 		</buildCommand>
