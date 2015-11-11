@@ -10,14 +10,11 @@ shared dynamic PersonControllerScope {
 
 shared void personController(PersonControllerScope scope, Location location, Resource resource) {
 	location.path("/new");
-	
 	scope.newPerson = () {
-		print("AEEEEEEEEEEEEEEE");
-		
 		dynamic {
 			dynamic res = resource;
 			res.create(scope.user);
-			location.path("/person-list");
+			location.path("/new");
 		}
 	}; 
 }
