@@ -12,6 +12,19 @@ shared Angular angular {
 
 shared dynamic Document {}
 
+shared dynamic Resource {}
+
+shared dynamic Location {
+	shared formal void path(String path);
+}
+
+shared dynamic RouteProvider {
+	shared formal dynamic when(String path, dynamic config);
+}
+shared dynamic HttpProvider {
+	shared formal dynamic defaults;
+}
+
 shared dynamic Angular {
     shared formal NgModule \imodule(String name, Array<String> dependencies);
     shared formal void bootstrap(Document doc, Array<String> modules);
@@ -19,6 +32,8 @@ shared dynamic Angular {
 
 shared dynamic NgModule {
     shared formal AngularController controller(String name, Array<Object> dependenciesAndFunction);
+    shared formal void config(Array<Object> params);
+    shared formal void factory(String name, Array<Object> params);
 }
 
 shared dynamic AngularController {

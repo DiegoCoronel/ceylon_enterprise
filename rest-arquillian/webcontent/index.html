@@ -3,8 +3,11 @@
     <head>
         <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
         <title>Ceylon Enterprise</title>
+        <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.css">
         <script type="text/javascript" src="js/require-2.1.20.js"></script>
         <script type="text/javascript" src="js/angular.js"></script>
+        <script type="text/javascript" src="js/angular-route.js"></script>
+        <script type="text/javascript" src="js/angular-resource.js"></script>
         <script type="text/javascript">
             require.config({
                 // location of our project's compiled modules
@@ -20,6 +23,6 @@
         </script>
     </head>
     <body ng-controller="PersonController">
-        {{sayHello}}
+		<div ng-view=""></div>
     </body>
 </html>
