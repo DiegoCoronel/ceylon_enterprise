@@ -15,6 +15,12 @@ Any help will be appreciated, also suggestions, patches, pull requests, etc...  
 
 P.S: I´m also learning a lot about Ceylon integration with all the stack of frameworks I choose for implementation.
 
+P.S: I need to say and thank because all this was influenced by: 
+
+* https://github.com/sgalles/ceylon-dddsample
+
+* Angular JS project of @bjansen (I dont remember the repository)
+
 ###Architecture
 
 Currently I´m using 4 projects:
