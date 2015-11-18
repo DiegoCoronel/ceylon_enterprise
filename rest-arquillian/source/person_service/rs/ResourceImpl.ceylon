@@ -17,6 +17,9 @@ import person_api.rs {
 import person_service.dao {
 	PersonDao
 }
+import java.util {
+	List
+}
 
 inject
 stateless
@@ -40,5 +43,7 @@ shared class ResourceImpl(PersonDao personDao) satisfies Resource {
 		person.update(personalInfo);
 		return person;
 	}
+	
+	shared default actual List<out Person> getAll() => personDao.getAll();
 
 }

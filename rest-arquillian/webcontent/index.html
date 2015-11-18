@@ -10,14 +10,12 @@
         <script type="text/javascript" src="js/angular-resource.js"></script>
         <script type="text/javascript">
             require.config({
-                // location of our project's compiled modules
                 baseUrl: 'modules'
             });
-            // call `run()`
             require([
                          'person_frontend/1.0.0/person_frontend-1.0.0',
                          'ceylon_angular/1.0.0/ceylon_angular-1.0.0',
-                         'ceylon/language/1.2.1/ceylon.language-1.2.1'
+                         'ceylon/language/1.2.1/ceylon.language-1.2.1',
                      ], 
                     function (_app) { app = _app; app.run(); });
         </script>

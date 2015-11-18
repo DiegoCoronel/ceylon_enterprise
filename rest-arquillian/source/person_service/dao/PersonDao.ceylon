@@ -17,6 +17,9 @@ import javax.persistence {
 import ceylon.interop.java {
 	javaClass
 }
+import java.util {
+	List
+}
 
 inject
 shared class PersonDao(EntityManager entityManager) {
@@ -42,6 +45,10 @@ shared class PersonDao(EntityManager entityManager) {
 			entityManager.remove(person);
 		}
 		return person;
+	}
+	
+	shared List<out Person> getAll() {
+		return entityManager.createQuery("from PersonImpl", javaClass<PersonImpl>()).resultList;
 	}
 	
 }

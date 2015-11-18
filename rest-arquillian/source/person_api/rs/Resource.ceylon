@@ -18,6 +18,9 @@ import person_api.model {
 	Person,
 	PersonalInfo
 }
+import java.util {
+	List
+}
 
 path("/person")
 produces({MediaType.\iAPPLICATION_JSON})
@@ -42,5 +45,8 @@ shared interface Resource {
 	delete
 	path("/{id}")
 	shared formal Person? remove(pathParam("id") JLong id);
+	
+	get
+	shared formal List<out Person> getAll();
 	
 }

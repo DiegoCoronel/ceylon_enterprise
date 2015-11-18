@@ -19,7 +19,7 @@ shared dynamic Location {
 }
 
 shared dynamic RouteProvider {
-	shared formal dynamic when(String path, dynamic config);
+	shared formal RouteProvider when(String path, dynamic config);
 }
 shared dynamic HttpProvider {
 	shared formal dynamic defaults;
