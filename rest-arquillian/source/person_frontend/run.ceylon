@@ -1,9 +1,7 @@
 import ceylon_angular {
 	angular,
-	document,
-	RouteProvider
+	document
 }
-
 import person_frontend.controller {
 	personController
 }
@@ -30,24 +28,4 @@ shared void run() {
 	// We can't bootstrap AngularJS using `ng-app` because our app
 	// is loaded asynchronously.
 	angular.bootstrap(document, Array {"angularApp"});
-}
-
-void configureRoute(RouteProvider routeProvider) {
-	dynamic {
-		routeProvider
-		.when(
-			"/new", 
-			dynamic [
-				templateUrl = "views/person-creation.html";
-				controller = "PersonController";
-			]
-		)
-		.when(
-			"/person-list", 
-			dynamic [
-			templateUrl = "views/person-list.html";
-			controller = "PersonController";
-			]
-		);
-	}
 }
