@@ -4,7 +4,6 @@ shared Anything personsFactory(Anything obj) {
 		dynamic resource = obj;
 		return resource("/application-1.0.0/rest/person", dynamic [], dynamic [
 			create = dynamic [ method = "POST"; ];
-			getAll = dynamic [ method = "GET"; isArray = true; ];
 		]);
 	}
 }

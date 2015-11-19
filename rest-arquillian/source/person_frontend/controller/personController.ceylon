@@ -37,7 +37,10 @@ shared void personController(PersonControllerScope scope, Location location, Res
 	dynamic {
 		dynamic res = personResource;
 		dynamic params = routeParams;
-		scope.user = res.get(dynamic[ id = params.id; ]); 
+		
+		if(exists check = params.id) {
+			scope.user = res.get(dynamic[ id = check; ]); 
+		}
 	}
 	
 }

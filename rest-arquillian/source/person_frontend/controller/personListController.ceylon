@@ -28,13 +28,13 @@ shared void personListController(PersonListControllerScope scope, Location locat
 			res.remove(dynamic[ id = idPerson; ]); 
 			
 			dynamic resPersons = personsResource;
-			scope.persons = resPersons.getAll();
+			scope.persons = resPersons.query();
 		}	
 	};
 	
 	dynamic  {
 		dynamic res = personsResource;
-		scope.persons = res.getAll();
+		scope.persons = res.query();
 	}
 	
 }
