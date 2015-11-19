@@ -14,6 +14,8 @@ shared dynamic Document {}
 
 shared dynamic Resource {}
 
+shared dynamic Factory {}
+
 shared dynamic Location {
 	shared formal void path(String path);
 }

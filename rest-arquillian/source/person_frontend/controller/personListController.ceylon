@@ -1,6 +1,7 @@
 import ceylon_angular {
 	Location,
-	Resource
+	Resource,
+	Factory
 }
 shared dynamic PersonListControllerScope {
 	shared formal variable Anything(Integer) editPersonPage;
@@ -9,7 +10,7 @@ shared dynamic PersonListControllerScope {
 	shared formal variable Anything persons;
 }
 
-shared void personListController(PersonListControllerScope scope, Location location, Resource routeParams, Resource personsResource, Resource personResource) {
+shared void personListController(PersonListControllerScope scope, Location location, Resource routeParams, Factory personListFactory, Factory personFactory) {
 	scope.editPersonPage = (Integer idPerson) {
 		dynamic {
 			location.path("/person-edit/``idPerson``");
@@ -26,17 +27,17 @@ shared void personListController(PersonListControllerScope scope, Location locat
 		dynamic {
 			
 			void onRemove(dynamic element) {
-				dynamic resPersons = personsResource;
+				dynamic resPersons = personListFactory;
 				scope.persons = resPersons.query();				
 			}
 			
-			dynamic res = personResource;
+			dynamic res = personFactory;
 			res.remove(dynamic[ id = idPerson; ], onRemove); 
 		}	
 	};
 	
 	dynamic  {
-		dynamic res = personsResource;
+		dynamic res = personListFactory;
 		scope.persons = res.query();
 	}
 	

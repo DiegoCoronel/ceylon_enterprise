@@ -1,6 +1,7 @@
 import ceylon_angular {
 	Location,
-	Resource
+	Resource,
+	Factory
 }
 
 shared dynamic PersonControllerScope {
@@ -10,7 +11,7 @@ shared dynamic PersonControllerScope {
 	shared variable formal dynamic user;
 }
 
-shared void personController(PersonControllerScope scope, Location location, Resource routeParams, Resource personsResource, Resource personResource) {
+shared void personController(PersonControllerScope scope, Location location, Resource routeParams, Factory personListFactory, Factory personFactory) {
 	
 	scope.newPerson = () {
 		dynamic {
@@ -19,7 +20,7 @@ shared void personController(PersonControllerScope scope, Location location, Res
 				location.path("/");	
 			}
 			
-			dynamic res = personsResource;
+			dynamic res = personListFactory;
 			res.create(scope.user, onCreate);
 			
 		}
@@ -32,7 +33,7 @@ shared void personController(PersonControllerScope scope, Location location, Res
 				location.path("/");	
 			}
 			
-			dynamic res = personResource;
+			dynamic res = personFactory;
 			res.update(scope.user, onEdit);
 			
 		}
@@ -45,7 +46,7 @@ shared void personController(PersonControllerScope scope, Location location, Res
 	};
 	
 	dynamic {
-		dynamic res = personResource;
+		dynamic res = personFactory;
 		dynamic params = routeParams;
 		
 		if(exists check = params.id) {
