@@ -3,10 +3,12 @@ import ceylon_angular {
 	document
 }
 import person_frontend.controller {
+	personListController,
 	personController
 }
 import person_frontend.factory {
-	personFactory
+	personFactory,
+	personsFactory
 }
 
 "Run the module `person_frontend`."
@@ -18,11 +20,15 @@ shared void run() {
 	angularApp.config(Array({"$routeProvider", configureRoute of Object}));
 	
 	//Configure Factories
+	angularApp.factory("PersonsFactory", Array({"$resource", personsFactory of Object}));
 	angularApp.factory("PersonFactory", Array({"$resource", personFactory of Object}));
 	
 	//Configure Controllers
+	angularApp.controller("PersonListController", Array(
+		{"$scope", "$location", "$routeParams", "PersonsFactory", "PersonFactory", personListController of Object})
+	);
 	angularApp.controller("PersonController", Array(
-		{"$scope", "$location", "PersonFactory", personController of Object})
+		{"$scope", "$location", "$routeParams", "PersonsFactory", "PersonFactory", personController of Object})
 	);
 	
 	// We can't bootstrap AngularJS using `ng-app` because our app

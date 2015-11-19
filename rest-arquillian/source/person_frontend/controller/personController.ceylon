@@ -3,32 +3,67 @@ import ceylon_angular {
 	Resource
 }
 
-shared dynamic PersonControllerScope {
-	shared formal variable Anything() newPerson;
+shared dynamic PersonListControllerScope {
+	shared formal variable Anything(Integer) editPersonPage;
 	shared formal variable Anything() newPersonPage;
-	shared formal dynamic user;
 	shared formal variable Anything persons;
 }
-variable shared Boolean passou = false;
-shared void personController(PersonControllerScope scope, Location location, Resource resource) {
-	scope.newPerson = () {
+
+shared void personListController(PersonListControllerScope scope, Location location, Resource routeParams, Resource personsResource, Resource personResource) {
+	scope.editPersonPage = (Integer idPerson) {
 		dynamic {
-			passou = false;
-			dynamic res = resource;
-			res.create(scope.user);
-			location.path("/person-list");
+			location.path("/person-edit/``idPerson``");
 		}
-	}; 
+	};
 	
 	scope.newPersonPage = () {
 		dynamic {
 			location.path("/new");
 		}
 	}; 
-
+	
 	dynamic  {
-		dynamic res = resource;
+		dynamic res = personsResource;
 		scope.persons = res.getAll();
+	}
+	
+}
+
+shared dynamic PersonControllerScope {
+	shared formal variable Anything() newPerson;
+	shared formal variable Anything() updatePerson;
+	shared formal variable Anything() cancel;
+	shared variable formal dynamic user;
+}
+
+shared void personController(PersonControllerScope scope, Location location, Resource routeParams, Resource personsResource, Resource personResource) {
+	
+	scope.newPerson = () {
+		dynamic {
+			dynamic res = personsResource;
+			res.create(scope.user);
+			location.path("/");
+		}
+	}; 
+	
+	scope.updatePerson = () {
+		dynamic {
+			dynamic res = personResource;
+			res.update(scope.user);
+			location.path("/");
+		}
+	};
+	
+	scope.cancel = () {
+		dynamic {
+			location.path("/");
+		}
+	};
+	
+	dynamic {
+		dynamic res = personResource;
+		dynamic params = routeParams;
+		scope.user = res.get(dynamic[ id = params.id; ]); 
 	}
 	
 }

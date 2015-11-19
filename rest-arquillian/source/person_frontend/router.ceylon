@@ -5,19 +5,28 @@ import ceylon_angular {
 void configureRoute(RouteProvider routeProvider) {
 	dynamic {
 		routeProvider
-				.when(
+		.when(
+			"/", 
+			dynamic [
+			templateUrl = "views/person-list.html";
+			controller = "PersonListController";
+			]
+		)
+		.when(
 			"/new", 
 			dynamic [
 			templateUrl = "views/person-creation.html";
 			controller = "PersonController";
 			]
 		)
-				.when(
-			"/person-list", 
+		.when(
+			"/person-edit/:id", 
 			dynamic [
-			templateUrl = "views/person-list.html";
+			templateUrl = "views/person-edit.html";
 			controller = "PersonController";
 			]
-		);
+		)
+		;
+		
 	}
 }

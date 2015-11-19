@@ -12,7 +12,7 @@
       <tr ng-repeat="person in persons">
         <td>{{ person.id }}</td>
         <td>{{ person.name }}</td>
-        <td><a ng-click="editPerson(person.id)" class="btn btn-small btn-primary">edit</a></td>
+        <td><a ng-click="editPersonPage(person.id)" class="btn btn-small btn-primary">edit</a></td>
         <td><a ng-click="deletePerson(person.id)" class="btn btn-small btn-danger">delete</a></td>
       </tr>
     </tbody>
