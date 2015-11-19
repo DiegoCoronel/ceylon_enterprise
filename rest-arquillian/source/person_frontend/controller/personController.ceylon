@@ -6,6 +6,7 @@ import ceylon_angular {
 shared dynamic PersonListControllerScope {
 	shared formal variable Anything(Integer) editPersonPage;
 	shared formal variable Anything() newPersonPage;
+	shared formal variable Anything(Integer) removePerson;
 	shared formal variable Anything persons;
 }
 
@@ -20,7 +21,17 @@ shared void personListController(PersonListControllerScope scope, Location locat
 		dynamic {
 			location.path("/new");
 		}
-	}; 
+	};
+	
+	scope.removePerson = (Integer idPerson) {
+		dynamic {
+			dynamic res = personResource;
+			res.remove(dynamic[ id = idPerson; ]); 
+			
+			dynamic resPersons = personsResource;
+			scope.persons = resPersons.getAll();
+		}	
+	};
 	
 	dynamic  {
 		dynamic res = personsResource;
