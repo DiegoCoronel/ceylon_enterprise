@@ -24,11 +24,14 @@ shared void personListController(PersonListControllerScope scope, Location locat
 	
 	scope.removePerson = (Integer idPerson) {
 		dynamic {
-			dynamic res = personResource;
-			res.remove(dynamic[ id = idPerson; ]); 
 			
-			dynamic resPersons = personsResource;
-			scope.persons = resPersons.query();
+			void onRemove(dynamic element) {
+				dynamic resPersons = personsResource;
+				scope.persons = resPersons.query();				
+			}
+			
+			dynamic res = personResource;
+			res.remove(dynamic[ id = idPerson; ], onRemove); 
 		}	
 	};
 	

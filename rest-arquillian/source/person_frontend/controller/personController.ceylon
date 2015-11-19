@@ -14,17 +14,27 @@ shared void personController(PersonControllerScope scope, Location location, Res
 	
 	scope.newPerson = () {
 		dynamic {
+			
+			void onCreate(dynamic response) {
+				location.path("/");	
+			}
+			
 			dynamic res = personsResource;
-			res.create(scope.user);
-			location.path("/");
+			res.create(scope.user, onCreate);
+			
 		}
 	}; 
 	
 	scope.updatePerson = () {
 		dynamic {
+			
+			void onEdit(dynamic response) {
+				location.path("/");	
+			}
+			
 			dynamic res = personResource;
-			res.update(scope.user);
-			location.path("/");
+			res.update(scope.user, onEdit);
+			
 		}
 	};
 	
