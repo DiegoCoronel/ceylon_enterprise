@@ -1,14 +1,31 @@
 <?xml version="1.0"?>
 <project name="CeylonEE" default="build_and_publish" basedir=".">
 
-	<property name="wildfly_path" value="E:/wildfly-9.0.1.Final/standalone/deployments/" />
-	<property name="ceylon_path" value="E:/trabalho/ceylon/ceylon-dist/dist/bin/ceylon.bat" />
+	<property name="wildfly_path" value="/Users/DiegoCoronel/Work/Server/wildfly-9.0.1.Final/standalone/deployments/" />
+	<property name="ceylon_path" value="/Users/DiegoCoronel/Work/Git/ceylon/ceylon/dist/dist/bin/ceylon" />
+	<property name="ceylon_language_version" value="1.2.1" />
 
-	<target name="build_and_publish" depends="compile, deploy" />
+	<target name="build_and_publish" depends="compile, language_configuration, copy_frontend, deploy" />
 
+	<target name="language_configuration" >
+		<replace 
+			file="webcontent/index.html" 
+			token="#ceylon_language_version#"
+			value="${ceylon_language_version}" />
+		<mkdir dir="webcontent/modules/ceylon/language/${ceylon_language_version}/"/>
+		<copy todir="webcontent/modules/ceylon/language/${ceylon_language_version}/" overwrite="true">
+			<fileset 
+				file="${ceylon_path}/../../repo/ceylon/language/${ceylon_language_version}/ceylon.language-${ceylon_language_version}*.js"
+			/>
+		</copy>
+	</target>
+	
 	<target name="compile">
 		<exec executable="${ceylon_path}">
 			<arg value="compile" />
+		</exec>
+		<exec executable="${ceylon_path}">
+			<arg value="compile-js" />
 		</exec>
 	</target>
 
@@ -24,11 +41,13 @@
 	</target>
 	
 	<target name="copy_frontend">
+		<mkdir dir="webcontent/modules/person_frontend/1.0.0/"/>
 		<copy todir="webcontent/modules/person_frontend/1.0.0/" overwrite="true">
 			<fileset 
 				file="modules/person_frontend/1.0.0/person_frontend-1.0.0*.js"
 			/>
 		</copy>
+		<mkdir dir="webcontent/modules/ceylon_angular/1.0.0/"/>
 		<copy todir="webcontent/modules/ceylon_angular/1.0.0/" overwrite="true">
 			<fileset 
 				file="modules/ceylon_angular/1.0.0/ceylon_angular-1.0.0*.js"
