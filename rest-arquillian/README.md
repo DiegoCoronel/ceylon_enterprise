@@ -25,12 +25,13 @@ P.S: I need to say and thank because all this was influenced by:
 
 ###Architecture
 
-Currently I´m using 4 projects:
+Currently I´m using 5 projects:
 
 - Application: this is just an assembler, it must declare all modules we want deployed in wildfly;
 - Person API: This is all contracts of services we want available for users;
 - Person Service: This is the concrete project that uses its own stack of technologies to provide de API to users;
 - Person Test: This is our quality guarantee, we must validate all services available using Unit and Integration Tests.   
+- Ceylon Angular: This project was created to simulate AngularJS framework using safe contracts when possible
 
 ###Configure, run and deploy
 
@@ -45,12 +46,12 @@ At the root of the project theres a file **build.xml** that needs to be changed:
 #### Understanding build.xml
 
 Theres some targets created to make our life easier:
-* **language_configuration**: for now this is necessary just it first configuration, its going to change your _index.html_ replacing the current language version token by the specified language version that you set in _ceylon_language_version_ and copy the language to your webcontent/module folder
+* **language_configuration**: for now this is necessary just in first configuration, its going to change your _index.html_ replacing the current language version token by the specified language version that you set in build.xml and copy the language to your _webcontent/module_ folder
 * **compile**: compile java and js modules
 * **deploy**: create a _war_ file based on _application_ and copy to your server
 * **copy_frontend**: this project was developed using eclipse, so it has its own folder conventions and this target get the _js modules_ from eclipse and copy them to _webcontent/module_ folder
 * **build_and_publish**: depends on all steps, this _should be used_ in first time you are using this project
- * In browser go to http://localhost:8080/application-1.0.0/rest/person/health to check if its working
+ * In browser go to http://localhost:8080/application-1.0.0/
 
 ###Planned
 
