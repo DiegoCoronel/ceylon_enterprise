@@ -35,6 +35,7 @@ Currently I´m using 4 projects:
 ###Configure, run and deploy
 
 At the root of the project theres a file **build.xml** that needs to be changed:
+
 1. Point to the right location of your server (wildfly) changing the value of _wildfly_path_
 2. Point to the right location of your ceylon (executable) file changing the value of _ceylon_path_
 3. Set the ceylon language version you wanna use for this project changing the value of _ceylon_language_version_
