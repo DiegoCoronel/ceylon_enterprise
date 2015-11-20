@@ -25,12 +25,13 @@ P.S: I need to say and thank because all this was influenced by:
 
 ###Architecture
 
-Currently I´m using 5 projects:
+Currently I´m using 6 projects:
 
 - Application: this is just an assembler, it must declare all modules we want deployed in wildfly;
 - Person API: This is all contracts of services we want available for users;
 - Person Service: This is the concrete project that uses its own stack of technologies to provide de API to users;
 - Person Test: This is our quality guarantee, we must validate all services available using Unit and Integration Tests.   
+- Person Frontend: This is where you should put all you html, css and js. This is the frontend that is using currently AngularJS through ceylon 
 - Ceylon Angular: This project was created to simulate AngularJS framework using safe contracts when possible
 
 ###Configure, run and deploy
